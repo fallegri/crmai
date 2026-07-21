@@ -1,0 +1,29 @@
+{
+  "requirements": [
+    {
+      "id": "REQ-CAT-01",
+      "description": "El sistema debe gestionar catálogo académico: Facultades, Programas, Cohorts",
+      "type": "functional",
+      "priority": "critical"
+    },
+    {
+      "id": "REQ-CAT-02",
+      "description": "El catálogo debe ser configurable por Admin",
+      "type": "functional",
+      "priority": "high"
+    },
+    {
+      "id": "REQ-CAT-03",
+      "description": "Catálogo de solo lectura para asesores comerciales",
+      "type": "functional",
+      "priority": "high"
+    },
+    {
+      "id": "REQ-CAT-04",
+      "description": "Los datos de catálogo deben poder cachearse en Redis",
+      "type": "non-functional",
+      "priority": "medium"
+    }
+  ],
+  "updated": "2026-07-21T01:25:24.444Z"
+}

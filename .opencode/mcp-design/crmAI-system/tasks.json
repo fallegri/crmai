@@ -1,0 +1,143 @@
+{
+  "tasks": [
+    {
+      "id": "T-001",
+      "title": "Inicializar monorepo pnpm + Turborepo",
+      "description": "Crear estructura del monorepo con pnpm workspaces, Turborepo, configuración base de TypeScript, ESLint, Prettier",
+      "assignee": "dev",
+      "estimated_hours": 2,
+      "depends_on": []
+    },
+    {
+      "id": "T-002",
+      "title": "Scaffold apps/api (NestJS)",
+      "description": "Crear aplicación NestJS con estructura hexagonal, módulos base, configuración de Prisma, conexión a PostgreSQL",
+      "assignee": "dev",
+      "estimated_hours": 3,
+      "depends_on": [
+        "T-001"
+      ]
+    },
+    {
+      "id": "T-003",
+      "title": "Scaffold apps/web (Next.js)",
+      "description": "Crear aplicación Next.js con TypeScript, estructura de carpetas, configuración de Tailwind, layout base",
+      "assignee": "dev",
+      "estimated_hours": 2,
+      "depends_on": [
+        "T-001"
+      ]
+    },
+    {
+      "id": "T-004",
+      "title": "Configurar Docker Compose",
+      "description": "Crear docker-compose.yml con Postgres 16, Redis 7, y configurar redes/volúmenes",
+      "assignee": "dev",
+      "estimated_hours": 1,
+      "depends_on": [
+        "T-001"
+      ]
+    },
+    {
+      "id": "T-005",
+      "title": "Schema Prisma base",
+      "description": "Definir schema inicial de Prisma con tablas de identity (User, Role, Permission, Session, RefreshToken)",
+      "assignee": "dev",
+      "estimated_hours": 2,
+      "depends_on": [
+        "T-002"
+      ]
+    },
+    {
+      "id": "T-006",
+      "title": "Implementar dominio Identity",
+      "description": "Crear entidades de dominio: User, Role, Permission, Session, RefreshToken con reglas de negocio puras",
+      "assignee": "dev",
+      "estimated_hours": 4,
+      "depends_on": [
+        "T-005"
+      ]
+    },
+    {
+      "id": "T-007",
+      "title": "Implementar puertos Identity",
+      "description": "Definir interfaces: UserRepositoryPort, SessionPort, TokenServicePort, PasswordHasherPort",
+      "assignee": "dev",
+      "estimated_hours": 2,
+      "depends_on": [
+        "T-006"
+      ]
+    },
+    {
+      "id": "T-008",
+      "title": "Implementar adaptadores Identity",
+      "description": "Crear PrismaUserRepository, RedisSessionAdapter, JwtTokenService, BcryptPasswordHasher",
+      "assignee": "dev",
+      "estimated_hours": 4,
+      "depends_on": [
+        "T-007"
+      ]
+    },
+    {
+      "id": "T-009",
+      "title": "Implementar casos de uso Auth",
+      "description": "Implementar AuthUseCase (register, login, refresh, logout, 2FA), SessionManagementUseCase",
+      "assignee": "dev",
+      "estimated_hours": 4,
+      "depends_on": [
+        "T-008"
+      ]
+    },
+    {
+      "id": "T-010",
+      "title": "Implementar RBAC completo",
+      "description": "Implementar RoleManagementUseCase, PermissionCheckUseCase, PermissionsGuard, OwnershipScope, matriz de permisos",
+      "assignee": "dev",
+      "estimated_hours": 5,
+      "depends_on": [
+        "T-009"
+      ]
+    },
+    {
+      "id": "T-011",
+      "title": "Controladores HTTP Identity",
+      "description": "Crear AuthController, SessionsController, RolesController, PermissionsController con DTOs y Swagger",
+      "assignee": "dev",
+      "estimated_hours": 3,
+      "depends_on": [
+        "T-010"
+      ]
+    },
+    {
+      "id": "T-012",
+      "title": "Rate limiting y seguridad HTTP",
+      "description": "Implementar rate limiting en endpoints de auth, headers de seguridad (CSP, HSTS, X-Content-Type-Options)",
+      "assignee": "dev",
+      "estimated_hours": 2,
+      "depends_on": [
+        "T-011"
+      ]
+    },
+    {
+      "id": "T-013",
+      "title": "Tests unitarios Identity",
+      "description": "Escribir tests unitarios para dominio, casos de uso y puertos del módulo Identity",
+      "assignee": "dev",
+      "estimated_hours": 4,
+      "depends_on": [
+        "T-010"
+      ]
+    },
+    {
+      "id": "T-014",
+      "title": "Tests e2e Auth",
+      "description": "Escribir tests e2e para flujos completos de autenticación, autorización y RBAC",
+      "assignee": "dev",
+      "estimated_hours": 3,
+      "depends_on": [
+        "T-011"
+      ]
+    }
+  ],
+  "updated": "2026-07-21T01:26:06.537Z"
+}

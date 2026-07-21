@@ -1,0 +1,36 @@
+{
+  "contract_type": "all",
+  "contracts": [
+    {
+      "type": "pre-condition",
+      "description": "reporting input validation",
+      "assertion": "require(input !== null && input !== undefined)"
+    },
+    {
+      "type": "pre-condition",
+      "description": "reporting authorization check",
+      "assertion": "require(authorized === true)"
+    },
+    {
+      "type": "post-condition",
+      "description": "reporting returns valid result",
+      "assertion": "ensure(result !== null)"
+    },
+    {
+      "type": "post-condition",
+      "description": "reporting no side effects on error",
+      "assertion": "ensure(error === null || state_unchanged === true)"
+    },
+    {
+      "type": "invariant",
+      "description": "reporting state consistency",
+      "assertion": "invariant(state.version >= 0)"
+    },
+    {
+      "type": "invariant",
+      "description": "reporting data integrity",
+      "assertion": "invariant(checksum(data) === expected_checksum)"
+    }
+  ],
+  "generatedAt": "2026-07-21T03:13:53.239Z"
+}

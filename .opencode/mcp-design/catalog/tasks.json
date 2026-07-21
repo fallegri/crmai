@@ -1,0 +1,63 @@
+{
+  "tasks": [
+    {
+      "id": "CAT-T-001",
+      "title": "Crear entidades de dominio Catalog",
+      "description": "Faculty, Program, Cohort como entidades puras",
+      "assignee": "dev",
+      "estimated_hours": 2,
+      "depends_on": []
+    },
+    {
+      "id": "CAT-T-002",
+      "title": "Definir puertos Catalog",
+      "description": "CatalogRepositoryPort, CatalogCachePort",
+      "assignee": "dev",
+      "estimated_hours": 1,
+      "depends_on": [
+        "CAT-T-001"
+      ]
+    },
+    {
+      "id": "CAT-T-003",
+      "title": "Implementar casos de uso Catalog",
+      "description": "CatalogQueryUseCase (listar, buscar), CatalogAdminUseCase (crear, actualizar, eliminar)",
+      "assignee": "dev",
+      "estimated_hours": 3,
+      "depends_on": [
+        "CAT-T-002"
+      ]
+    },
+    {
+      "id": "CAT-T-004",
+      "title": "Implementar adaptadores Catalog",
+      "description": "PrismaCatalogRepositoryAdapter, RedisCatalogCacheAdapter",
+      "assignee": "dev",
+      "estimated_hours": 3,
+      "depends_on": [
+        "CAT-T-003"
+      ]
+    },
+    {
+      "id": "CAT-T-005",
+      "title": "Crear controladores Catalog",
+      "description": "CatalogController con endpoints REST y DTOs",
+      "assignee": "dev",
+      "estimated_hours": 2,
+      "depends_on": [
+        "CAT-T-004"
+      ]
+    },
+    {
+      "id": "CAT-T-006",
+      "title": "Extender schema Prisma con tablas Catalog",
+      "description": "Faculty, Program, Cohort en schema.prisma",
+      "assignee": "dev",
+      "estimated_hours": 1,
+      "depends_on": [
+        "CAT-T-001"
+      ]
+    }
+  ],
+  "updated": "2026-07-21T01:32:21.982Z"
+}

@@ -1,0 +1,29 @@
+{
+  "requirements": [
+    {
+      "id": "NTF-01",
+      "description": "Enviar notificación in-app a un usuario",
+      "type": "functional",
+      "priority": "critical"
+    },
+    {
+      "id": "NTF-02",
+      "description": "Listar notificaciones no leídas del usuario autenticado",
+      "type": "functional",
+      "priority": "critical"
+    },
+    {
+      "id": "NTF-03",
+      "description": "Listar historial de notificaciones con paginación cursor-based",
+      "type": "functional",
+      "priority": "high"
+    },
+    {
+      "id": "NTF-04",
+      "description": "Marcar notificación como leída (individual y masivo)",
+      "type": "functional",
+      "priority": "high"
+    }
+  ],
+  "updated": "2026-07-21T03:13:47.243Z"
+}

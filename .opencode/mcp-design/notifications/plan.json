@@ -1,0 +1,44 @@
+{
+  "phases": [
+    {
+      "name": "Dominio Notifications",
+      "description": "Notification entity con markAsRead",
+      "estimated_hours": 1,
+      "dependencies": []
+    },
+    {
+      "name": "Puerto Notifications",
+      "description": "NotificationRepositoryPort",
+      "estimated_hours": 1,
+      "dependencies": [
+        "Dominio Notifications"
+      ]
+    },
+    {
+      "name": "Caso de uso Notifications",
+      "description": "NotificationUseCase: send, getUnread, getAll, markAsRead",
+      "estimated_hours": 1,
+      "dependencies": [
+        "Puerto Notifications"
+      ]
+    },
+    {
+      "name": "Adaptador Prisma Notifications",
+      "description": "PrismaNotificationRepositoryAdapter",
+      "estimated_hours": 2,
+      "dependencies": [
+        "Caso de uso Notifications"
+      ]
+    },
+    {
+      "name": "Controlador Notifications",
+      "description": "NotificationController REST + DTOs",
+      "estimated_hours": 2,
+      "dependencies": [
+        "Adaptador Prisma Notifications"
+      ]
+    }
+  ],
+  "architecture": "Hexagonal. Tabla insert-only. NotificationChannelPort para futuros canales (email, SMS, push).",
+  "updated": "2026-07-21T03:14:05.462Z"
+}

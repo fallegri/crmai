@@ -1,0 +1,85 @@
+{
+  "phases": [
+    {
+      "name": "Slice 1 — Scaffolding",
+      "description": "Monorepo pnpm + Turborepo, NestJS backend scaffold, Next.js frontend scaffold, Prisma schema base, Docker Compose (Postgres + Redis), configuración de CI básica",
+      "estimated_hours": 8,
+      "dependencies": []
+    },
+    {
+      "name": "Slice 2 — Auth + RBAC",
+      "description": "Módulo identity completo: JWT + refresh tokens, 2FA opcional, RBAC por tupla (módulo, acción), PermissionsGuard, OwnershipScope, recuperación de contraseña, rate limiting",
+      "estimated_hours": 24,
+      "dependencies": [
+        "Slice 1 — Scaffolding"
+      ]
+    },
+    {
+      "name": "Slice 3 — Catálogo académico",
+      "description": "Módulo catalog: Facultades, Programas, Cohorts. CRUD admin, consulta pública, cache Redis",
+      "estimated_hours": 16,
+      "dependencies": [
+        "Slice 2 — Auth + RBAC"
+      ]
+    },
+    {
+      "name": "Slice 4 — Contactos/Oportunidades/Pipeline",
+      "description": "Módulos contacts + opportunities: Contact deduplicado, Opportunity por Program/Cohort, Pipeline de ~12 etapas, Enrollment auditado, Asignación round-robin con row-lock",
+      "estimated_hours": 40,
+      "dependencies": [
+        "Slice 3 — Catálogo académico"
+      ]
+    },
+    {
+      "name": "Slice 5 — Timeline de actividad",
+      "description": "Módulo activities: ActivityEvent insert-only, timeline por Contact/Opportunity, búsqueda y filtros, paginación cursor-based",
+      "estimated_hours": 16,
+      "dependencies": [
+        "Slice 4 — Contactos/Oportunidades/Pipeline"
+      ]
+    },
+    {
+      "name": "Slice 6 — Agenda/Calendario",
+      "description": "Módulo agenda: eventos de asesor, recordatorios, integración con timeline, vista calendario",
+      "estimated_hours": 16,
+      "dependencies": [
+        "Slice 5 — Timeline de actividad"
+      ]
+    },
+    {
+      "name": "Slice 7 — Reglas de automatización",
+      "description": "Módulo automations: reglas trigger-acción, workers BullMQ, ejecución asíncrona, auditoría",
+      "estimated_hours": 20,
+      "dependencies": [
+        "Slice 6 — Agenda/Calendario"
+      ]
+    },
+    {
+      "name": "Slice 8 — Campañas",
+      "description": "Módulo campaigns: creación, segmentación, ejecución, tracking, integración con puertos de notificación",
+      "estimated_hours": 20,
+      "dependencies": [
+        "Slice 7 — Reglas de automatización"
+      ]
+    },
+    {
+      "name": "Slice 9 — Dashboards + Reportes",
+      "description": "Módulo reporting: materialized views (mv_funnel_by_stage, mv_conversion_by_dimension, mv_advisor_ranking, mv_goal_compliance), refresh cada 5min vía worker, API de reportes",
+      "estimated_hours": 24,
+      "dependencies": [
+        "Slice 4 — Contactos/Oportunidades/Pipeline"
+      ]
+    },
+    {
+      "name": "Slice 10 — Documentos + Notificaciones",
+      "description": "Módulos documents + notifications: FileStoragePort (local disk), NotificationChannelPort, MessagingPort, EmailPort, SmsPort — adaptadores de log/local, puertos listos para integración real",
+      "estimated_hours": 16,
+      "dependencies": [
+        "Slice 8 — Campañas",
+        "Slice 9 — Dashboards + Reportes"
+      ]
+    }
+  ],
+  "architecture": "Arquitectura Hexagonal + Monolito Modular. Monorepo pnpm + Turborepo con apps/api (NestJS), apps/web (Next.js), packages/contracts, packages/config. 12 bounded contexts como módulos independientes. Base de datos PostgreSQL + Prisma ORM. Redis para caché y BullMQ. Cada módulo expone puertos; comunicación entre módulos solo por casos de uso públicos.",
+  "updated": "2026-07-21T01:25:53.014Z"
+}

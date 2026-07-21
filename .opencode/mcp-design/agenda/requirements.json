@@ -1,0 +1,23 @@
+{
+  "requirements": [
+    {
+      "id": "AGE-01",
+      "description": "CRUD de eventos de calendario con título, descripción, fechas, tipo",
+      "type": "functional",
+      "priority": "critical"
+    },
+    {
+      "id": "AGE-02",
+      "description": "Filtrar eventos por ownerId y rango de fechas",
+      "type": "functional",
+      "priority": "high"
+    },
+    {
+      "id": "AGE-03",
+      "description": "Asociar eventos a contactos y oportunidades",
+      "type": "functional",
+      "priority": "medium"
+    }
+  ],
+  "updated": "2026-07-21T03:12:30.276Z"
+}

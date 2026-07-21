@@ -1,0 +1,85 @@
+{
+  "tasks": [
+    {
+      "id": "CON-T-001",
+      "title": "Crear entidades de dominio Contacts",
+      "description": "Contact, Opportunity, PipelineStage, AdvisorAssignment, Enrollment",
+      "assignee": "dev",
+      "estimated_hours": 4,
+      "depends_on": []
+    },
+    {
+      "id": "CON-T-002",
+      "title": "Definir puertos Contacts",
+      "description": "ContactRepositoryPort, OpportunityRepositoryPort, AssignmentStrategyPort, DeduplicationPort",
+      "assignee": "dev",
+      "estimated_hours": 2,
+      "depends_on": [
+        "CON-T-001"
+      ]
+    },
+    {
+      "id": "CON-T-003",
+      "title": "Implementar ContactUseCase",
+      "description": "CRUD de contactos con deduplicación automática",
+      "assignee": "dev",
+      "estimated_hours": 3,
+      "depends_on": [
+        "CON-T-002"
+      ]
+    },
+    {
+      "id": "CON-T-004",
+      "title": "Implementar OpportunityUseCase",
+      "description": "CRUD de oportunidades, cambio de etapa, pipeline management",
+      "assignee": "dev",
+      "estimated_hours": 3,
+      "depends_on": [
+        "CON-T-002"
+      ]
+    },
+    {
+      "id": "CON-T-005",
+      "title": "Implementar AssignmentUseCase",
+      "description": "Asignación round-robin con row-lock por AdvisorProgram",
+      "assignee": "dev",
+      "estimated_hours": 3,
+      "depends_on": [
+        "CON-T-002"
+      ]
+    },
+    {
+      "id": "CON-T-006",
+      "title": "Implementar EnrollmentUseCase",
+      "description": "Enrollment manual con auditoría de actor+timestamp+evidencia",
+      "assignee": "dev",
+      "estimated_hours": 2,
+      "depends_on": [
+        "CON-T-004"
+      ]
+    },
+    {
+      "id": "CON-T-007",
+      "title": "Implementar adaptadores Contacts",
+      "description": "PrismaContactRepositoryAdapter, PrismaOpportunityRepositoryAdapter, RoundRobinAssignmentStrategy",
+      "assignee": "dev",
+      "estimated_hours": 6,
+      "depends_on": [
+        "CON-T-003",
+        "CON-T-004",
+        "CON-T-005"
+      ]
+    },
+    {
+      "id": "CON-T-008",
+      "title": "Crear controladores Contacts",
+      "description": "ContactController, OpportunityController, PipelineController con DTOs y Swagger",
+      "assignee": "dev",
+      "estimated_hours": 4,
+      "depends_on": [
+        "CON-T-007"
+      ]
+    }
+  ],
+  "updated": "2026-07-21T01:34:29.601Z"
+}

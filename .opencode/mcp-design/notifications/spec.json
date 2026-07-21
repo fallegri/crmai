@@ -1,0 +1,25 @@
+{
+  "action": "create",
+  "spec": {
+    "description": "Módulo de notificaciones in-app",
+    "language": "typescript",
+    "technology": "NestJS, Prisma",
+    "architecture": "Hexagonal",
+    "modules": [
+      "Notification"
+    ],
+    "use_cases": [
+      "NotificationUseCase (send, getUnread, markAsRead)"
+    ],
+    "ports": [
+      "NotificationRepositoryPort",
+      "NotificationChannelPort"
+    ],
+    "business_rules": [
+      "Notificaciones insert-only",
+      "Marcar como leídas (soft delete no aplica)",
+      "Canales: in_app (v1)"
+    ]
+  },
+  "updated": "2026-07-21T03:13:37.705Z"
+}

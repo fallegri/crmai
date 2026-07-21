@@ -1,0 +1,53 @@
+{
+  "action": "create",
+  "spec": {
+    "description": "Módulo de Contactos, Oportunidades y Pipeline",
+    "language": "typescript",
+    "framework": {
+      "backend": "NestJS",
+      "monorepo": "pnpm + Turborepo"
+    },
+    "architecture": "hexagonal",
+    "layers": {
+      "domain": [
+        "Contact",
+        "Opportunity",
+        "PipelineStage",
+        "AdvisorAssignment",
+        "Enrollment"
+      ],
+      "application": [
+        "ContactUseCase",
+        "OpportunityUseCase",
+        "PipelineUseCase",
+        "AssignmentUseCase",
+        "DeduplicationUseCase"
+      ],
+      "infrastructure": [
+        "PrismaContactRepository",
+        "PrismaOpportunityRepository",
+        "RoundRobinAssignmentStrategy"
+      ],
+      "interface": [
+        "ContactController",
+        "OpportunityController",
+        "PipelineController"
+      ]
+    },
+    "ports": [
+      "ContactRepositoryPort",
+      "OpportunityRepositoryPort",
+      "AssignmentStrategyPort",
+      "DeduplicationPort"
+    ],
+    "business_rules": [
+      "R1: Contact es persona única deduplicada",
+      "R2: Match exacto (documento/email) → auto-merge; difuso → revisión humana",
+      "R3: Opportunity = pursuit comercial de un Contact hacia un Program/Cohort",
+      "R4: Pipeline único de ~12 etapas con terminales fijas (Enrolled, Not Interested, Lost)",
+      "R5: Enrollment manual del asesor con auditoría",
+      "R6: Asignación por AdvisorProgram + round-robin con row-lock"
+    ]
+  },
+  "updated": "2026-07-21T01:25:17.429Z"
+}

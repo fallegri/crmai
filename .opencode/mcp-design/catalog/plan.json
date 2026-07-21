@@ -1,0 +1,44 @@
+{
+  "phases": [
+    {
+      "name": "Dominio Catalog",
+      "description": "Entidades Faculty, Program, Cohort sin dependencias de infraestructura",
+      "estimated_hours": 2,
+      "dependencies": []
+    },
+    {
+      "name": "Puertos Catalog",
+      "description": "CatalogRepositoryPort, CatalogCachePort",
+      "estimated_hours": 1,
+      "dependencies": [
+        "Dominio Catalog"
+      ]
+    },
+    {
+      "name": "Casos de uso Catalog",
+      "description": "CatalogQueryUseCase (consulta pública), CatalogAdminUseCase (CRUD admin)",
+      "estimated_hours": 3,
+      "dependencies": [
+        "Puertos Catalog"
+      ]
+    },
+    {
+      "name": "Adaptadores Catalog",
+      "description": "PrismaCatalogRepositoryAdapter, RedisCatalogCacheAdapter",
+      "estimated_hours": 3,
+      "dependencies": [
+        "Casos de uso Catalog"
+      ]
+    },
+    {
+      "name": "Controladores Catalog",
+      "description": "CatalogController con endpoints de consulta y administración",
+      "estimated_hours": 2,
+      "dependencies": [
+        "Adaptadores Catalog"
+      ]
+    }
+  ],
+  "architecture": "Hexagonal. Catálogo de solo lectura para asesores, solo Admin puede modificar. Cache en Redis para datos que cambian poco.",
+  "updated": "2026-07-21T01:32:14.753Z"
+}

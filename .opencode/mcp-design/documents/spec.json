@@ -1,0 +1,24 @@
+{
+  "action": "create",
+  "spec": {
+    "description": "Módulo de documentos adjuntos",
+    "language": "typescript",
+    "technology": "NestJS, Prisma",
+    "architecture": "Hexagonal",
+    "modules": [
+      "Document"
+    ],
+    "use_cases": [
+      "DocumentUseCase (upload, consulta, eliminación)"
+    ],
+    "ports": [
+      "DocumentRepositoryPort",
+      "FileStoragePort"
+    ],
+    "business_rules": [
+      "Solo el uploader puede eliminar",
+      "Los documentos se asocian a contactos u oportunidades"
+    ]
+  },
+  "updated": "2026-07-21T03:13:36.451Z"
+}

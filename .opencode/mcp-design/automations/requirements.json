@@ -1,0 +1,29 @@
+{
+  "requirements": [
+    {
+      "id": "AUT-01",
+      "description": "CRUD de reglas de automatización con triggerType y actionType",
+      "type": "functional",
+      "priority": "critical"
+    },
+    {
+      "id": "AUT-02",
+      "description": "Evaluar reglas activas según tipo de evento disparador",
+      "type": "functional",
+      "priority": "high"
+    },
+    {
+      "id": "AUT-03",
+      "description": "Configuración de trigger (JSON) y action (JSON) por regla",
+      "type": "functional",
+      "priority": "high"
+    },
+    {
+      "id": "AUT-04",
+      "description": "Priorizar ejecución por campo priority",
+      "type": "functional",
+      "priority": "medium"
+    }
+  ],
+  "updated": "2026-07-21T03:13:01.298Z"
+}

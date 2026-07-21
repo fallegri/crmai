@@ -1,0 +1,29 @@
+{
+  "requirements": [
+    {
+      "id": "ACT-01",
+      "description": "Registrar eventos de actividad (insert-only) para contactos y oportunidades",
+      "type": "functional",
+      "priority": "critical"
+    },
+    {
+      "id": "ACT-02",
+      "description": "Timeline paginado con cursor-based pagination para tablas append-only",
+      "type": "functional",
+      "priority": "critical"
+    },
+    {
+      "id": "ACT-03",
+      "description": "Filtrar timeline por contactId, opportunityId y actorId",
+      "type": "functional",
+      "priority": "high"
+    },
+    {
+      "id": "ACT-04",
+      "description": "Los eventos deben incluir type, title, description, metadata y actorId",
+      "type": "functional",
+      "priority": "high"
+    }
+  ],
+  "updated": "2026-07-21T03:12:01.016Z"
+}

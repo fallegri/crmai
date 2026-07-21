@@ -1,0 +1,53 @@
+{
+  "tasks": [
+    {
+      "id": "AUT-T-001",
+      "title": "Crear entidad AutomationRule",
+      "description": "Entity con name, triggerType, triggerConfig, actionType, actionConfig, isActive, priority",
+      "assignee": "dev",
+      "estimated_hours": 1,
+      "depends_on": []
+    },
+    {
+      "id": "AUT-T-002",
+      "title": "Definir AutomationRepositoryPort",
+      "description": "Puerto: create, findAllActive, findById, update, delete",
+      "assignee": "dev",
+      "estimated_hours": 1,
+      "depends_on": [
+        "AUT-T-001"
+      ]
+    },
+    {
+      "id": "AUT-T-003",
+      "title": "Implementar AutomationUseCase",
+      "description": "CRUD + evaluateTriggers(eventType, context)",
+      "assignee": "dev",
+      "estimated_hours": 2,
+      "depends_on": [
+        "AUT-T-002"
+      ]
+    },
+    {
+      "id": "AUT-T-004",
+      "title": "Implementar PrismaAutomationRepositoryAdapter",
+      "description": "Adaptador Prisma",
+      "assignee": "dev",
+      "estimated_hours": 2,
+      "depends_on": [
+        "AUT-T-003"
+      ]
+    },
+    {
+      "id": "AUT-T-005",
+      "title": "Crear AutomationController",
+      "description": "Endpoints REST con permisos de administración",
+      "assignee": "dev",
+      "estimated_hours": 2,
+      "depends_on": [
+        "AUT-T-004"
+      ]
+    }
+  ],
+  "updated": "2026-07-21T03:13:21.550Z"
+}

@@ -1,0 +1,53 @@
+{
+  "tasks": [
+    {
+      "id": "CMP-T-001",
+      "title": "Crear entidad Campaign",
+      "description": "Entity con name, description, type, status, startDate, endDate, config",
+      "assignee": "dev",
+      "estimated_hours": 1,
+      "depends_on": []
+    },
+    {
+      "id": "CMP-T-002",
+      "title": "Definir CampaignRepositoryPort",
+      "description": "Puerto CRUD",
+      "assignee": "dev",
+      "estimated_hours": 1,
+      "depends_on": [
+        "CMP-T-001"
+      ]
+    },
+    {
+      "id": "CMP-T-003",
+      "title": "Implementar CampaignUseCase",
+      "description": "CRUD de campañas",
+      "assignee": "dev",
+      "estimated_hours": 1,
+      "depends_on": [
+        "CMP-T-002"
+      ]
+    },
+    {
+      "id": "CMP-T-004",
+      "title": "Implementar PrismaCampaignRepositoryAdapter",
+      "description": "Adaptador Prisma",
+      "assignee": "dev",
+      "estimated_hours": 2,
+      "depends_on": [
+        "CMP-T-003"
+      ]
+    },
+    {
+      "id": "CMP-T-005",
+      "title": "Crear CampaignController",
+      "description": "Endpoints REST protegidos con permisos",
+      "assignee": "dev",
+      "estimated_hours": 2,
+      "depends_on": [
+        "CMP-T-004"
+      ]
+    }
+  ],
+  "updated": "2026-07-21T03:14:13.054Z"
+}

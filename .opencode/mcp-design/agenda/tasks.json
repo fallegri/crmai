@@ -1,0 +1,53 @@
+{
+  "tasks": [
+    {
+      "id": "AGE-T-001",
+      "title": "Crear entidad AgendaEvent",
+      "description": "Entity con title, description, eventType, startDate, endDate, allDay, ownerId, status",
+      "assignee": "dev",
+      "estimated_hours": 1,
+      "depends_on": []
+    },
+    {
+      "id": "AGE-T-002",
+      "title": "Definir AgendaRepositoryPort",
+      "description": "Puerto: create, findById, findByOwner, update, delete",
+      "assignee": "dev",
+      "estimated_hours": 1,
+      "depends_on": [
+        "AGE-T-001"
+      ]
+    },
+    {
+      "id": "AGE-T-003",
+      "title": "Implementar AgendaUseCase",
+      "description": "CRUD + getCalendar con filtro de fechas",
+      "assignee": "dev",
+      "estimated_hours": 1,
+      "depends_on": [
+        "AGE-T-002"
+      ]
+    },
+    {
+      "id": "AGE-T-004",
+      "title": "Implementar PrismaAgendaRepositoryAdapter",
+      "description": "Adaptador Prisma con búsqueda por rango de fechas",
+      "assignee": "dev",
+      "estimated_hours": 2,
+      "depends_on": [
+        "AGE-T-003"
+      ]
+    },
+    {
+      "id": "AGE-T-005",
+      "title": "Crear AgendaController",
+      "description": "Endpoints REST para eventos de calendario",
+      "assignee": "dev",
+      "estimated_hours": 2,
+      "depends_on": [
+        "AGE-T-004"
+      ]
+    }
+  ],
+  "updated": "2026-07-21T03:12:49.809Z"
+}

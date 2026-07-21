@@ -1,0 +1,182 @@
+{
+  "tasks": [
+    {
+      "id": "ID-T-001",
+      "title": "Crear entidades de dominio Identity",
+      "description": "Implementar User, Role, Permission, Session, RefreshToken como entidades puras sin dependencias de framework",
+      "assignee": "dev",
+      "estimated_hours": 3,
+      "depends_on": []
+    },
+    {
+      "id": "ID-T-002",
+      "title": "Definir puertos Identity",
+      "description": "Crear interfaces UserRepositoryPort, SessionPort, TokenServicePort, PasswordHasherPort en application/ports",
+      "assignee": "dev",
+      "estimated_hours": 1,
+      "depends_on": [
+        "ID-T-001"
+      ]
+    },
+    {
+      "id": "ID-T-003",
+      "title": "Implementar AuthUseCase",
+      "description": "AuthUseCase con register, login, refreshToken, logout, enable2FA, verify2FA, forgotPassword, resetPassword",
+      "assignee": "dev",
+      "estimated_hours": 4,
+      "depends_on": [
+        "ID-T-002"
+      ]
+    },
+    {
+      "id": "ID-T-004",
+      "title": "Implementar SessionManagementUseCase",
+      "description": "SessionManagementUseCase con createSession, revokeSession, listActiveSessions, revokeAllSessions",
+      "assignee": "dev",
+      "estimated_hours": 2,
+      "depends_on": [
+        "ID-T-002"
+      ]
+    },
+    {
+      "id": "ID-T-005",
+      "title": "Implementar RoleManagementUseCase",
+      "description": "RoleManagementUseCase con createRole, updateRole, deleteRole, assignRoleToUser, removeRoleFromUser, updatePermissionMatrix",
+      "assignee": "dev",
+      "estimated_hours": 3,
+      "depends_on": [
+        "ID-T-002"
+      ]
+    },
+    {
+      "id": "ID-T-006",
+      "title": "Implementar adaptador PrismaUserRepository",
+      "description": "Implementar UserRepositoryPort usando Prisma para persistencia de usuarios, roles y permisos",
+      "assignee": "dev",
+      "estimated_hours": 3,
+      "depends_on": [
+        "ID-T-003",
+        "ID-T-004",
+        "ID-T-005"
+      ]
+    },
+    {
+      "id": "ID-T-007",
+      "title": "Implementar adaptador RedisSessionAdapter",
+      "description": "Implementar SessionPort usando Redis para almacenamiento de sesiones con TTL",
+      "assignee": "dev",
+      "estimated_hours": 1,
+      "depends_on": [
+        "ID-T-004"
+      ]
+    },
+    {
+      "id": "ID-T-008",
+      "title": "Implementar JwtTokenService",
+      "description": "Implementar TokenServicePort con JWT access/refresh tokens rotativos",
+      "assignee": "dev",
+      "estimated_hours": 2,
+      "depends_on": [
+        "ID-T-002"
+      ]
+    },
+    {
+      "id": "ID-T-009",
+      "title": "Implementar BcryptPasswordHasher",
+      "description": "Implementar PasswordHasherPort con bcrypt para hash y verificación",
+      "assignee": "dev",
+      "estimated_hours": 1,
+      "depends_on": [
+        "ID-T-002"
+      ]
+    },
+    {
+      "id": "ID-T-010",
+      "title": "Crear AuthController con DTOs",
+      "description": "Crear controlador REST con endpoints: register, login, refresh, logout, 2FA, password recovery. DTOs con validación y Swagger",
+      "assignee": "dev",
+      "estimated_hours": 3,
+      "depends_on": [
+        "ID-T-006",
+        "ID-T-007",
+        "ID-T-008",
+        "ID-T-009"
+      ]
+    },
+    {
+      "id": "ID-T-011",
+      "title": "Crear SessionsController",
+      "description": "Endpoints para gestionar sesiones activas del usuario autenticado",
+      "assignee": "dev",
+      "estimated_hours": 1,
+      "depends_on": [
+        "ID-T-006",
+        "ID-T-007",
+        "ID-T-008"
+      ]
+    },
+    {
+      "id": "ID-T-012",
+      "title": "Crear Roles/Permissions Controllers",
+      "description": "Endpoints CRUD para roles y matriz de permisos (solo Admin)",
+      "assignee": "dev",
+      "estimated_hours": 2,
+      "depends_on": [
+        "ID-T-006",
+        "ID-T-007"
+      ]
+    },
+    {
+      "id": "ID-T-013",
+      "title": "Implementar PermissionsGuard",
+      "description": "Guard de NestJS que verifica permisos por tupla (módulo, acción) antes de cada request",
+      "assignee": "dev",
+      "estimated_hours": 2,
+      "depends_on": [
+        "ID-T-012"
+      ]
+    },
+    {
+      "id": "ID-T-014",
+      "title": "Implementar OwnershipScope",
+      "description": "Scope de autorización a nivel de fila para prevenir IDOR",
+      "assignee": "dev",
+      "estimated_hours": 2,
+      "depends_on": [
+        "ID-T-013"
+      ]
+    },
+    {
+      "id": "ID-T-015",
+      "title": "Implementar rate limiting y headers de seguridad",
+      "description": "Rate limiting por IP/usuario en endpoints de auth. Headers CSP, HSTS, X-Content-Type-Options",
+      "assignee": "dev",
+      "estimated_hours": 2,
+      "depends_on": [
+        "ID-T-013"
+      ]
+    },
+    {
+      "id": "ID-T-016",
+      "title": "Escribir tests unitarios Identity",
+      "description": "Tests para dominio, casos de uso y adaptadores del módulo Identity",
+      "assignee": "dev",
+      "estimated_hours": 4,
+      "depends_on": [
+        "ID-T-014"
+      ]
+    },
+    {
+      "id": "ID-T-017",
+      "title": "Escribir tests e2e Identity",
+      "description": "Tests e2e para flujos completos de autenticación, RBAC y autorización",
+      "assignee": "dev",
+      "estimated_hours": 3,
+      "depends_on": [
+        "ID-T-014",
+        "ID-T-015"
+      ]
+    }
+  ],
+  "updated": "2026-07-21T01:26:37.140Z"
+}

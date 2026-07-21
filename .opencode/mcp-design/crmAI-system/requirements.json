@@ -1,0 +1,65 @@
+{
+  "requirements": [
+    {
+      "id": "REQ-SYS-01",
+      "description": "El sistema usará arquitectura Hexagonal + Monolito Modular con 12 bounded contexts",
+      "type": "non-functional",
+      "priority": "critical"
+    },
+    {
+      "id": "REQ-SYS-02",
+      "description": "Monorepo pnpm + Turborepo (apps/api, apps/web, packages/contracts, packages/config)",
+      "type": "non-functional",
+      "priority": "critical"
+    },
+    {
+      "id": "REQ-SYS-03",
+      "description": "Backend NestJS con TypeScript, Frontend Next.js",
+      "type": "non-functional",
+      "priority": "critical"
+    },
+    {
+      "id": "REQ-SYS-04",
+      "description": "Base de datos PostgreSQL con Prisma ORM",
+      "type": "non-functional",
+      "priority": "critical"
+    },
+    {
+      "id": "REQ-SYS-05",
+      "description": "Redis para caché y BullMQ para workers",
+      "type": "non-functional",
+      "priority": "high"
+    },
+    {
+      "id": "REQ-SYS-06",
+      "description": "Cada módulo expone puertos; comunicación entre módulos solo por casos de uso públicos",
+      "type": "non-functional",
+      "priority": "critical"
+    },
+    {
+      "id": "REQ-SYS-07",
+      "description": "Ningún reporte pesado debe correr como query directa sobre tablas transaccionales (materialized views)",
+      "type": "non-functional",
+      "priority": "high"
+    },
+    {
+      "id": "REQ-SYS-08",
+      "description": "Paginación obligatoria en todo endpoint de listado; cursor-based en tablas append-only",
+      "type": "non-functional",
+      "priority": "high"
+    },
+    {
+      "id": "REQ-SYS-09",
+      "description": "Prevención de N+1 en toda consulta de application/",
+      "type": "non-functional",
+      "priority": "high"
+    },
+    {
+      "id": "REQ-SYS-10",
+      "description": "OWASP Top 10 como gate obligatorio antes de cada release",
+      "type": "non-functional",
+      "priority": "critical"
+    }
+  ],
+  "updated": "2026-07-21T01:25:28.532Z"
+}

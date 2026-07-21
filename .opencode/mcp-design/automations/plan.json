@@ -1,0 +1,44 @@
+{
+  "phases": [
+    {
+      "name": "Dominio Automations",
+      "description": "AutomationRule entity",
+      "estimated_hours": 1,
+      "dependencies": []
+    },
+    {
+      "name": "Puerto Automations",
+      "description": "AutomationRepositoryPort",
+      "estimated_hours": 1,
+      "dependencies": [
+        "Dominio Automations"
+      ]
+    },
+    {
+      "name": "Caso de uso Automations",
+      "description": "AutomationUseCase: CRUD + evaluateTriggers",
+      "estimated_hours": 2,
+      "dependencies": [
+        "Puerto Automations"
+      ]
+    },
+    {
+      "name": "Adaptador Prisma Automations",
+      "description": "PrismaAutomationRepositoryAdapter",
+      "estimated_hours": 2,
+      "dependencies": [
+        "Caso de uso Automations"
+      ]
+    },
+    {
+      "name": "Controlador Automations",
+      "description": "AutomationController REST + DTOs",
+      "estimated_hours": 2,
+      "dependencies": [
+        "Adaptador Prisma Automations"
+      ]
+    }
+  ],
+  "architecture": "Hexagonal. Reglas trigger-acción con prioridad. Evaluación de triggers para workers BullMQ futuros.",
+  "updated": "2026-07-21T03:13:14.641Z"
+}

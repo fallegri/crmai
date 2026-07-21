@@ -1,0 +1,37 @@
+{
+  "action": "create",
+  "spec": {
+    "description": "Sistema CRM crmAI - Monolito Modular Hexagonal",
+    "language": "typescript",
+    "framework": {
+      "backend": "NestJS",
+      "frontend": "Next.js",
+      "monorepo": "pnpm + Turborepo",
+      "database": "PostgreSQL + Prisma",
+      "cache": "Redis",
+      "queue": "BullMQ"
+    },
+    "architecture": "hexagonal",
+    "modules": [
+      "identity",
+      "catalog",
+      "contacts",
+      "opportunities",
+      "activities",
+      "agenda",
+      "automations",
+      "campaigns",
+      "reporting",
+      "documents",
+      "notifications",
+      "audit"
+    ],
+    "business_rules": [
+      "R1: Pipeline único configurable",
+      "R2: Deduplicación exacta auto-merge, difusa revisión humana",
+      "R3: Enrollment manual auditado",
+      "R4: Asignación por AdvisorProgram + round-robin"
+    ]
+  },
+  "updated": "2026-07-21T01:25:19.071Z"
+}

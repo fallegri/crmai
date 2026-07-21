@@ -1,0 +1,44 @@
+{
+  "phases": [
+    {
+      "name": "Dominio Campaigns",
+      "description": "Campaign entity",
+      "estimated_hours": 1,
+      "dependencies": []
+    },
+    {
+      "name": "Puerto Campaigns",
+      "description": "CampaignRepositoryPort",
+      "estimated_hours": 1,
+      "dependencies": [
+        "Dominio Campaigns"
+      ]
+    },
+    {
+      "name": "Caso de uso Campaigns",
+      "description": "CampaignUseCase CRUD",
+      "estimated_hours": 1,
+      "dependencies": [
+        "Puerto Campaigns"
+      ]
+    },
+    {
+      "name": "Adaptador Prisma Campaigns",
+      "description": "PrismaCampaignRepositoryAdapter",
+      "estimated_hours": 2,
+      "dependencies": [
+        "Caso de uso Campaigns"
+      ]
+    },
+    {
+      "name": "Controlador Campaigns",
+      "description": "CampaignController REST + DTOs",
+      "estimated_hours": 2,
+      "dependencies": [
+        "Adaptador Prisma Campaigns"
+      ]
+    }
+  ],
+  "architecture": "Hexagonal. CRUD de campañas con control de acceso por roles.",
+  "updated": "2026-07-21T03:14:00.961Z"
+}

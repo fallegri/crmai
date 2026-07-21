@@ -1,0 +1,44 @@
+{
+  "phases": [
+    {
+      "name": "Dominio Activities",
+      "description": "ActivityEvent entity pura",
+      "estimated_hours": 1,
+      "dependencies": []
+    },
+    {
+      "name": "Puerto Activities",
+      "description": "ActivityRepositoryPort con cursor-based pagination",
+      "estimated_hours": 1,
+      "dependencies": [
+        "Dominio Activities"
+      ]
+    },
+    {
+      "name": "Caso de uso Activities",
+      "description": "ActivityUseCase: record y query de timeline",
+      "estimated_hours": 2,
+      "dependencies": [
+        "Puerto Activities"
+      ]
+    },
+    {
+      "name": "Adaptador Prisma Activities",
+      "description": "PrismaActivityRepositoryAdapter",
+      "estimated_hours": 2,
+      "dependencies": [
+        "Caso de uso Activities"
+      ]
+    },
+    {
+      "name": "Controlador Activities",
+      "description": "ActivityController REST + DTOs",
+      "estimated_hours": 2,
+      "dependencies": [
+        "Adaptador Prisma Activities"
+      ]
+    }
+  ],
+  "architecture": "Hexagonal. Tabla insert-only ActivityEvent con índices compuestos. Cursor-based pagination.",
+  "updated": "2026-07-21T03:12:12.773Z"
+}

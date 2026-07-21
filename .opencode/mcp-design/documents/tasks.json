@@ -1,0 +1,53 @@
+{
+  "tasks": [
+    {
+      "id": "DOC-T-001",
+      "title": "Crear entidad Document",
+      "description": "Entity con name, fileUrl, fileType, fileSize, contactId, opportunityId, uploadedBy",
+      "assignee": "dev",
+      "estimated_hours": 1,
+      "depends_on": []
+    },
+    {
+      "id": "DOC-T-002",
+      "title": "Definir DocumentRepositoryPort",
+      "description": "Puerto con create, findById, findByContactId, findByOpportunityId, delete",
+      "assignee": "dev",
+      "estimated_hours": 1,
+      "depends_on": [
+        "DOC-T-001"
+      ]
+    },
+    {
+      "id": "DOC-T-003",
+      "title": "Implementar DocumentUseCase",
+      "description": "Upload, consulta, eliminación",
+      "assignee": "dev",
+      "estimated_hours": 1,
+      "depends_on": [
+        "DOC-T-002"
+      ]
+    },
+    {
+      "id": "DOC-T-004",
+      "title": "Implementar PrismaDocumentRepositoryAdapter",
+      "description": "Adaptador Prisma",
+      "assignee": "dev",
+      "estimated_hours": 2,
+      "depends_on": [
+        "DOC-T-003"
+      ]
+    },
+    {
+      "id": "DOC-T-005",
+      "title": "Crear DocumentController",
+      "description": "Endpoints REST",
+      "assignee": "dev",
+      "estimated_hours": 2,
+      "depends_on": [
+        "DOC-T-004"
+      ]
+    }
+  ],
+  "updated": "2026-07-21T03:14:16.631Z"
+}

@@ -1,0 +1,53 @@
+{
+  "requirements": [
+    {
+      "id": "REQ-CON-01",
+      "description": "El sistema debe gestionar Contactos como persona única deduplicada",
+      "type": "functional",
+      "priority": "critical"
+    },
+    {
+      "id": "REQ-CON-02",
+      "description": "Deduplicación: match exacto por documento de identidad o email → auto-merge",
+      "type": "functional",
+      "priority": "critical"
+    },
+    {
+      "id": "REQ-CON-03",
+      "description": "Match por teléfono o nombre difuso → flag para revisión humana, nunca auto-merge",
+      "type": "functional",
+      "priority": "high"
+    },
+    {
+      "id": "REQ-CON-04",
+      "description": "Un Contact puede tener múltiples Opportunities (persecuciones comerciales)",
+      "type": "functional",
+      "priority": "critical"
+    },
+    {
+      "id": "REQ-CON-05",
+      "description": "Pipeline único de ~12 etapas configurable por Admin",
+      "type": "functional",
+      "priority": "critical"
+    },
+    {
+      "id": "REQ-CON-06",
+      "description": "Etapas terminales fijas: Enrolled, Not Interested, Lost",
+      "type": "functional",
+      "priority": "high"
+    },
+    {
+      "id": "REQ-CON-07",
+      "description": "Enrollment: acción manual del asesor con auditoría de actor+timestamp+evidencia",
+      "type": "functional",
+      "priority": "high"
+    },
+    {
+      "id": "REQ-CON-08",
+      "description": "Asignación: ruteo por AdvisorProgram; empate → round-robin con row-lock",
+      "type": "functional",
+      "priority": "critical"
+    }
+  ],
+  "updated": "2026-07-21T01:25:26.289Z"
+}

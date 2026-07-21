@@ -1,0 +1,23 @@
+{
+  "requirements": [
+    {
+      "id": "CMP-01",
+      "description": "CRUD de campañas con nombre, descripción, tipo, fechas, estado",
+      "type": "functional",
+      "priority": "critical"
+    },
+    {
+      "id": "CMP-02",
+      "description": "Solo Admin puede crear/editar/eliminar campañas",
+      "type": "functional",
+      "priority": "high"
+    },
+    {
+      "id": "CMP-03",
+      "description": "Estados de campaña: draft, active, paused, completed",
+      "type": "functional",
+      "priority": "high"
+    }
+  ],
+  "updated": "2026-07-21T03:13:44.235Z"
+}

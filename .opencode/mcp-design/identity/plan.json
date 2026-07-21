@@ -1,0 +1,52 @@
+{
+  "phases": [
+    {
+      "name": "Dominio Identity",
+      "description": "Entidades de dominio puras: User, Role, Permission, Session, RefreshToken — sin imports de infraestructura",
+      "estimated_hours": 4,
+      "dependencies": []
+    },
+    {
+      "name": "Puertos Identity",
+      "description": "Interfaces: UserRepositoryPort, SessionPort, TokenServicePort, PasswordHasherPort",
+      "estimated_hours": 2,
+      "dependencies": [
+        "Dominio Identity"
+      ]
+    },
+    {
+      "name": "Casos de uso Identity",
+      "description": "AuthUseCase (register, login, refresh, logout, 2FA), SessionManagementUseCase, RoleManagementUseCase, PermissionCheckUseCase",
+      "estimated_hours": 5,
+      "dependencies": [
+        "Puertos Identity"
+      ]
+    },
+    {
+      "name": "Adaptadores Identity",
+      "description": "PrismaUserRepository, RedisSessionAdapter, JwtTokenService, BcryptPasswordHasher",
+      "estimated_hours": 4,
+      "dependencies": [
+        "Casos de uso Identity"
+      ]
+    },
+    {
+      "name": "Interface HTTP Identity",
+      "description": "AuthController, SessionsController, RolesController, PermissionsController, DTOs, Swagger, PermissionsGuard, OwnershipScope",
+      "estimated_hours": 5,
+      "dependencies": [
+        "Adaptadores Identity"
+      ]
+    },
+    {
+      "name": "Tests Identity",
+      "description": "Tests unitarios para dominio, casos de uso; tests e2e para flujos de auth y RBAC",
+      "estimated_hours": 4,
+      "dependencies": [
+        "Interface HTTP Identity"
+      ]
+    }
+  ],
+  "architecture": "Hexagonal Architecture: domain/ → application/ → infrastructure/ → interface/. Módulo identity dentro de apps/api. Inyección de dependencias NestJS. PostgreSQL con Prisma. Redis para sesiones.",
+  "updated": "2026-07-21T01:26:26.777Z"
+}

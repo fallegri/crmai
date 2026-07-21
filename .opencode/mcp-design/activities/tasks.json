@@ -1,0 +1,53 @@
+{
+  "tasks": [
+    {
+      "id": "ACT-T-001",
+      "title": "Crear entidad ActivityEvent",
+      "description": "ActivityEvent entity en domain/ sin dependencias de infraestructura",
+      "assignee": "dev",
+      "estimated_hours": 1,
+      "depends_on": []
+    },
+    {
+      "id": "ACT-T-002",
+      "title": "Definir ActivityRepositoryPort",
+      "description": "Puerto con métodos: create, findByContactId, findByOpportunityId, findByActorId — todos con cursor-based pagination",
+      "assignee": "dev",
+      "estimated_hours": 1,
+      "depends_on": [
+        "ACT-T-001"
+      ]
+    },
+    {
+      "id": "ACT-T-003",
+      "title": "Implementar ActivityUseCase",
+      "description": "Caso de uso: record(), getContactTimeline(), getOpportunityTimeline()",
+      "assignee": "dev",
+      "estimated_hours": 2,
+      "depends_on": [
+        "ACT-T-002"
+      ]
+    },
+    {
+      "id": "ACT-T-004",
+      "title": "Implementar PrismaActivityRepositoryAdapter",
+      "description": "Adaptador Prisma con paginación cursor-based",
+      "assignee": "dev",
+      "estimated_hours": 2,
+      "depends_on": [
+        "ACT-T-003"
+      ]
+    },
+    {
+      "id": "ACT-T-005",
+      "title": "Crear ActivityController",
+      "description": "Endpoints REST POST /activities, GET /activities/contact/:id, GET /activities/opportunity/:id",
+      "assignee": "dev",
+      "estimated_hours": 2,
+      "depends_on": [
+        "ACT-T-004"
+      ]
+    }
+  ],
+  "updated": "2026-07-21T03:12:19.587Z"
+}

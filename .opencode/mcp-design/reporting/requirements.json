@@ -1,0 +1,29 @@
+{
+  "requirements": [
+    {
+      "id": "RPT-01",
+      "description": "Obtener datos de funnel por etapa del pipeline",
+      "type": "functional",
+      "priority": "critical"
+    },
+    {
+      "id": "RPT-02",
+      "description": "Obtener tasa de conversión por programa y por fuente",
+      "type": "functional",
+      "priority": "critical"
+    },
+    {
+      "id": "RPT-03",
+      "description": "Obtener ranking de asesores por conversión",
+      "type": "functional",
+      "priority": "high"
+    },
+    {
+      "id": "RPT-04",
+      "description": "Guardar y eliminar reportes personalizados",
+      "type": "functional",
+      "priority": "medium"
+    }
+  ],
+  "updated": "2026-07-21T03:13:45.294Z"
+}

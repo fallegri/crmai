@@ -1,0 +1,23 @@
+{
+  "action": "create",
+  "spec": {
+    "description": "Módulo de campañas comerciales",
+    "language": "typescript",
+    "technology": "NestJS, Prisma",
+    "architecture": "Hexagonal",
+    "modules": [
+      "Campaign"
+    ],
+    "use_cases": [
+      "CampaignUseCase (CRUD)"
+    ],
+    "ports": [
+      "CampaignRepositoryPort"
+    ],
+    "business_rules": [
+      "Solo Admin puede gestionar campañas",
+      "Estados: draft, active, paused, completed"
+    ]
+  },
+  "updated": "2026-07-21T03:13:34.297Z"
+}

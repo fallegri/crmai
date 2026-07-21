@@ -1,0 +1,52 @@
+{
+  "phases": [
+    {
+      "name": "Dominio Contacts",
+      "description": "Entidades Contact, Opportunity, PipelineStage, AdvisorAssignment, Enrollment — reglas de negocio R1-R4",
+      "estimated_hours": 4,
+      "dependencies": []
+    },
+    {
+      "name": "Puertos Contacts",
+      "description": "ContactRepositoryPort, OpportunityRepositoryPort, AssignmentStrategyPort, DeduplicationPort",
+      "estimated_hours": 2,
+      "dependencies": [
+        "Dominio Contacts"
+      ]
+    },
+    {
+      "name": "Casos de uso Contacts",
+      "description": "ContactUseCase (CRUD + dedup), OpportunityUseCase (pipeline), PipelineUseCase (etapas), AssignmentUseCase (round-robin), EnrollmentUseCase",
+      "estimated_hours": 8,
+      "dependencies": [
+        "Puertos Contacts"
+      ]
+    },
+    {
+      "name": "Adaptadores Contacts",
+      "description": "PrismaContactRepositoryAdapter, PrismaOpportunityRepositoryAdapter, RoundRobinAssignmentStrategy",
+      "estimated_hours": 6,
+      "dependencies": [
+        "Casos de uso Contacts"
+      ]
+    },
+    {
+      "name": "Controladores Contacts",
+      "description": "ContactController, OpportunityController, PipelineController con DTOs y Swagger",
+      "estimated_hours": 4,
+      "dependencies": [
+        "Adaptadores Contacts"
+      ]
+    },
+    {
+      "name": "Tests Contacts",
+      "description": "Tests unitarios y e2e para reglas de negocio de contactos y pipeline",
+      "estimated_hours": 6,
+      "dependencies": [
+        "Controladores Contacts"
+      ]
+    }
+  ],
+  "architecture": "Hexagonal. Contact = persona única deduplicada. Opportunity = pursuit comercial por Program/Cohort. Pipeline único de ~12 etapas. Asignación por AdvisorProgram con round-robin + row-lock. Enrollment manual auditado.",
+  "updated": "2026-07-21T01:34:22.178Z"
+}

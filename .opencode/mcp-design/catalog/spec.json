@@ -1,0 +1,40 @@
+{
+  "action": "create",
+  "spec": {
+    "description": "Módulo de catálogo académico: Facultades, Programas, Cohorts",
+    "language": "typescript",
+    "framework": {
+      "backend": "NestJS",
+      "monorepo": "pnpm + Turborepo"
+    },
+    "architecture": "hexagonal",
+    "layers": {
+      "domain": [
+        "Faculty",
+        "Program",
+        "Cohort"
+      ],
+      "application": [
+        "CatalogQueryUseCase",
+        "CatalogAdminUseCase"
+      ],
+      "infrastructure": [
+        "PrismaCatalogRepository",
+        "RedisCatalogCache"
+      ],
+      "interface": [
+        "CatalogController"
+      ]
+    },
+    "ports": [
+      "CatalogRepositoryPort",
+      "CatalogCachePort"
+    ],
+    "business_rules": [
+      "R1: Catálogo de solo lectura para asesores",
+      "R2: Solo Admin puede crear/editar Facultades, Programas, Cohorts",
+      "R3: Cache en Redis con invalidación por cambio"
+    ]
+  },
+  "updated": "2026-07-21T01:25:15.041Z"
+}

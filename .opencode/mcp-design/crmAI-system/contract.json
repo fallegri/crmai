@@ -1,0 +1,36 @@
+{
+  "contract_type": "all",
+  "contracts": [
+    {
+      "type": "pre-condition",
+      "description": "crmAI-system input validation",
+      "assertion": "require(input !== null && input !== undefined)"
+    },
+    {
+      "type": "pre-condition",
+      "description": "crmAI-system authorization check",
+      "assertion": "require(authorized === true)"
+    },
+    {
+      "type": "post-condition",
+      "description": "crmAI-system returns valid result",
+      "assertion": "ensure(result !== null)"
+    },
+    {
+      "type": "post-condition",
+      "description": "crmAI-system no side effects on error",
+      "assertion": "ensure(error === null || state_unchanged === true)"
+    },
+    {
+      "type": "invariant",
+      "description": "crmAI-system state consistency",
+      "assertion": "invariant(state.version >= 0)"
+    },
+    {
+      "type": "invariant",
+      "description": "crmAI-system data integrity",
+      "assertion": "invariant(checksum(data) === expected_checksum)"
+    }
+  ],
+  "generatedAt": "2026-07-21T01:25:38.736Z"
+}

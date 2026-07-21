@@ -1,0 +1,53 @@
+{
+  "tasks": [
+    {
+      "id": "RPT-T-001",
+      "title": "Crear entidades de dominio Reporting",
+      "description": "DashboardReport + interfaces FunnelData, ConversionData, AdvisorRanking",
+      "assignee": "dev",
+      "estimated_hours": 1,
+      "depends_on": []
+    },
+    {
+      "id": "RPT-T-002",
+      "title": "Definir ReportRepositoryPort",
+      "description": "Puerto con métodos de datos agregados",
+      "assignee": "dev",
+      "estimated_hours": 1,
+      "depends_on": [
+        "RPT-T-001"
+      ]
+    },
+    {
+      "id": "RPT-T-003",
+      "title": "Implementar ReportingUseCase",
+      "description": "Caso de uso con funnel, conversión, ranking y reportes guardados",
+      "assignee": "dev",
+      "estimated_hours": 2,
+      "depends_on": [
+        "RPT-T-002"
+      ]
+    },
+    {
+      "id": "RPT-T-004",
+      "title": "Implementar PrismaReportRepositoryAdapter",
+      "description": "Adaptador con queries agregadas sobre Opportunity y PipelineStage",
+      "assignee": "dev",
+      "estimated_hours": 3,
+      "depends_on": [
+        "RPT-T-003"
+      ]
+    },
+    {
+      "id": "RPT-T-005",
+      "title": "Crear ReportingController",
+      "description": "Endpoints REST para dashboards",
+      "assignee": "dev",
+      "estimated_hours": 2,
+      "depends_on": [
+        "RPT-T-004"
+      ]
+    }
+  ],
+  "updated": "2026-07-21T03:14:14.915Z"
+}

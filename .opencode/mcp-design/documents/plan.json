@@ -1,0 +1,44 @@
+{
+  "phases": [
+    {
+      "name": "Dominio Documents",
+      "description": "Document entity",
+      "estimated_hours": 1,
+      "dependencies": []
+    },
+    {
+      "name": "Puerto Documents",
+      "description": "DocumentRepositoryPort + FileStoragePort",
+      "estimated_hours": 1,
+      "dependencies": [
+        "Dominio Documents"
+      ]
+    },
+    {
+      "name": "Caso de uso Documents",
+      "description": "DocumentUseCase: upload, consulta, eliminación",
+      "estimated_hours": 1,
+      "dependencies": [
+        "Puerto Documents"
+      ]
+    },
+    {
+      "name": "Adaptador Prisma Documents",
+      "description": "PrismaDocumentRepositoryAdapter",
+      "estimated_hours": 2,
+      "dependencies": [
+        "Caso de uso Documents"
+      ]
+    },
+    {
+      "name": "Controlador Documents",
+      "description": "DocumentController REST + DTOs",
+      "estimated_hours": 2,
+      "dependencies": [
+        "Adaptador Prisma Documents"
+      ]
+    }
+  ],
+  "architecture": "Hexagonal. FileStoragePort para futura integración con S3/disco local.",
+  "updated": "2026-07-21T03:14:03.956Z"
+}

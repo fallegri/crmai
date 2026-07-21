@@ -1,0 +1,23 @@
+{
+  "requirements": [
+    {
+      "id": "DOC-01",
+      "description": "Subir documento asociado a contacto u oportunidad",
+      "type": "functional",
+      "priority": "critical"
+    },
+    {
+      "id": "DOC-02",
+      "description": "Consultar documentos por contacto y por oportunidad",
+      "type": "functional",
+      "priority": "high"
+    },
+    {
+      "id": "DOC-03",
+      "description": "Eliminar documento (solo el uploader)",
+      "type": "functional",
+      "priority": "medium"
+    }
+  ],
+  "updated": "2026-07-21T03:13:46.149Z"
+}

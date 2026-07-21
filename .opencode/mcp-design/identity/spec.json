@@ -1,0 +1,61 @@
+{
+  "action": "create",
+  "spec": {
+    "description": "Módulo de autenticación y autorización RBAC - Hexagonal Architecture",
+    "language": "typescript",
+    "framework": {
+      "backend": "NestJS",
+      "frontend": "Next.js",
+      "monorepo": "pnpm + Turborepo"
+    },
+    "architecture": "hexagonal",
+    "layers": {
+      "domain": [
+        "User",
+        "Role",
+        "Permission",
+        "Session",
+        "RefreshToken"
+      ],
+      "application": [
+        "AuthUseCase",
+        "SessionManagementUseCase",
+        "RoleManagementUseCase",
+        "PermissionCheckUseCase"
+      ],
+      "infrastructure": [
+        "PrismaUserRepository",
+        "RedisSessionAdapter",
+        "JwtTokenService",
+        "BcryptPasswordHasher"
+      ],
+      "interface": [
+        "AuthController",
+        "SessionsController",
+        "RolesController",
+        "PermissionsController"
+      ]
+    },
+    "ports": [
+      "UserRepositoryPort",
+      "SessionPort",
+      "TokenServicePort",
+      "PasswordHasherPort"
+    ],
+    "business_rules": [
+      "R1: JWT + refresh tokens rotativos",
+      "R2: 2FA opcional",
+      "R3: RBAC por tupla (módulo, acción)",
+      "R4: Matriz editable por Admin",
+      "R5: Recuperación de contraseña segura"
+    ],
+    "security": [
+      "PermissionsGuard server-side real",
+      "OwnershipScope a nivel de fila",
+      "AuditLog insert-only",
+      "Rate limiting en endpoints de auth",
+      "Headers de seguridad (CSP, HSTS, X-Content-Type-Options)"
+    ]
+  },
+  "updated": "2026-07-21T01:24:47.637Z"
+}

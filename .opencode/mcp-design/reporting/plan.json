@@ -1,0 +1,44 @@
+{
+  "phases": [
+    {
+      "name": "Dominio Reporting",
+      "description": "DashboardReport entity + interfaces de datos (FunnelData, ConversionData, AdvisorRanking)",
+      "estimated_hours": 1,
+      "dependencies": []
+    },
+    {
+      "name": "Puerto Reporting",
+      "description": "ReportRepositoryPort",
+      "estimated_hours": 1,
+      "dependencies": [
+        "Dominio Reporting"
+      ]
+    },
+    {
+      "name": "Caso de uso Reporting",
+      "description": "ReportingUseCase: funnel, conversión, ranking",
+      "estimated_hours": 2,
+      "dependencies": [
+        "Puerto Reporting"
+      ]
+    },
+    {
+      "name": "Adaptador Prisma Reporting",
+      "description": "PrismaReportRepositoryAdapter con queries agregadas",
+      "estimated_hours": 3,
+      "dependencies": [
+        "Caso de uso Reporting"
+      ]
+    },
+    {
+      "name": "Controlador Reporting",
+      "description": "ReportingController REST",
+      "estimated_hours": 2,
+      "dependencies": [
+        "Adaptador Prisma Reporting"
+      ]
+    }
+  ],
+  "architecture": "Hexagonal. Queries agregadas sobre datos transaccionales. Sin materialized views en v1 (se agregan con BullMQ después).",
+  "updated": "2026-07-21T03:14:02.526Z"
+}

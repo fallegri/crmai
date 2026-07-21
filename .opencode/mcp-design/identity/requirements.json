@@ -1,0 +1,77 @@
+{
+  "requirements": [
+    {
+      "id": "REQ-AUTH-01",
+      "description": "El sistema debe permitir registro de usuarios con email y contraseña cifrada",
+      "type": "functional",
+      "priority": "critical"
+    },
+    {
+      "id": "REQ-AUTH-02",
+      "description": "El sistema debe autenticar usuarios mediante JWT + refresh tokens rotativos",
+      "type": "functional",
+      "priority": "critical"
+    },
+    {
+      "id": "REQ-AUTH-03",
+      "description": "El sistema debe soportar 2FA opcional",
+      "type": "functional",
+      "priority": "medium"
+    },
+    {
+      "id": "REQ-AUTH-04",
+      "description": "El sistema debe permitir recuperación de contraseña segura",
+      "type": "functional",
+      "priority": "high"
+    },
+    {
+      "id": "REQ-AUTH-05",
+      "description": "El sistema debe aplicar RBAC por tupla (módulo, acción)",
+      "type": "functional",
+      "priority": "critical"
+    },
+    {
+      "id": "REQ-AUTH-06",
+      "description": "El sistema debe tener un PermissionsGuard server-side real",
+      "type": "functional",
+      "priority": "critical"
+    },
+    {
+      "id": "REQ-AUTH-07",
+      "description": "El sistema debe implementar OwnershipScope a nivel de fila",
+      "type": "functional",
+      "priority": "high"
+    },
+    {
+      "id": "REQ-AUTH-08",
+      "description": "El sistema debe auditar todas las acciones de autenticación y autorización (insert-only)",
+      "type": "functional",
+      "priority": "high"
+    },
+    {
+      "id": "REQ-AUTH-09",
+      "description": "El sistema debe permitir a Admin editar la matriz de permisos",
+      "type": "functional",
+      "priority": "high"
+    },
+    {
+      "id": "REQ-AUTH-10",
+      "description": "El sistema debe aplicar rate limiting en endpoints de auth",
+      "type": "non-functional",
+      "priority": "high"
+    },
+    {
+      "id": "REQ-AUTH-11",
+      "description": "Los secretos JWT nunca deben estar hardcodeados ni en el repositorio",
+      "type": "non-functional",
+      "priority": "critical"
+    },
+    {
+      "id": "REQ-AUTH-12",
+      "description": "El frontend debe usar usePermission() solo como UX, nunca como límite de seguridad real",
+      "type": "non-functional",
+      "priority": "high"
+    }
+  ],
+  "updated": "2026-07-21T01:24:58.062Z"
+}

@@ -1,0 +1,44 @@
+{
+  "phases": [
+    {
+      "name": "Dominio Agenda",
+      "description": "AgendaEvent entity",
+      "estimated_hours": 1,
+      "dependencies": []
+    },
+    {
+      "name": "Puerto Agenda",
+      "description": "AgendaRepositoryPort",
+      "estimated_hours": 1,
+      "dependencies": [
+        "Dominio Agenda"
+      ]
+    },
+    {
+      "name": "Caso de uso Agenda",
+      "description": "AgendaUseCase: CRUD + calendario",
+      "estimated_hours": 1,
+      "dependencies": [
+        "Puerto Agenda"
+      ]
+    },
+    {
+      "name": "Adaptador Prisma Agenda",
+      "description": "PrismaAgendaRepositoryAdapter",
+      "estimated_hours": 2,
+      "dependencies": [
+        "Caso de uso Agenda"
+      ]
+    },
+    {
+      "name": "Controlador Agenda",
+      "description": "AgendaController REST + DTOs",
+      "estimated_hours": 2,
+      "dependencies": [
+        "Adaptador Prisma Agenda"
+      ]
+    }
+  ],
+  "architecture": "Hexagonal. Eventos con ownerId, fechas, tipo. Índices por ownerId+startDate.",
+  "updated": "2026-07-21T03:12:42.438Z"
+}

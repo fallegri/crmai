@@ -1,0 +1,53 @@
+{
+  "tasks": [
+    {
+      "id": "NTF-T-001",
+      "title": "Crear entidad Notification",
+      "description": "Entity con userId, type, title, body, channel, metadata, readAt — método markAsRead()",
+      "assignee": "dev",
+      "estimated_hours": 1,
+      "depends_on": []
+    },
+    {
+      "id": "NTF-T-002",
+      "title": "Definir NotificationRepositoryPort",
+      "description": "Puerto con create, findUnreadByUserId, findByUserId (cursor), markAsRead, markAllAsRead",
+      "assignee": "dev",
+      "estimated_hours": 1,
+      "depends_on": [
+        "NTF-T-001"
+      ]
+    },
+    {
+      "id": "NTF-T-003",
+      "title": "Implementar NotificationUseCase",
+      "description": "send, getUnread, getAll, markAsRead, markAllAsRead",
+      "assignee": "dev",
+      "estimated_hours": 1,
+      "depends_on": [
+        "NTF-T-002"
+      ]
+    },
+    {
+      "id": "NTF-T-004",
+      "title": "Implementar PrismaNotificationRepositoryAdapter",
+      "description": "Adaptador Prisma con paginación cursor-based",
+      "assignee": "dev",
+      "estimated_hours": 2,
+      "depends_on": [
+        "NTF-T-003"
+      ]
+    },
+    {
+      "id": "NTF-T-005",
+      "title": "Crear NotificationController",
+      "description": "Endpoints REST",
+      "assignee": "dev",
+      "estimated_hours": 2,
+      "depends_on": [
+        "NTF-T-004"
+      ]
+    }
+  ],
+  "updated": "2026-07-21T03:14:18.472Z"
+}

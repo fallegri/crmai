@@ -1,0 +1,26 @@
+{
+  "action": "create",
+  "spec": {
+    "description": "Módulo de reportes y dashboards",
+    "language": "typescript",
+    "technology": "NestJS, Prisma",
+    "architecture": "Hexagonal",
+    "modules": [
+      "DashboardReport",
+      "FunnelData",
+      "ConversionData",
+      "AdvisorRanking"
+    ],
+    "use_cases": [
+      "ReportingUseCase"
+    ],
+    "ports": [
+      "ReportRepositoryPort"
+    ],
+    "business_rules": [
+      "Lecturas pesadas separadas de ruta transaccional",
+      "Datos agregados, nunca PII"
+    ]
+  },
+  "updated": "2026-07-21T03:13:35.360Z"
+}
