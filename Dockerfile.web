@@ -1,0 +1,10 @@
+FROM node:20-slim AS base
+RUN apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
+RUN corepack enable && corepack prepare pnpm@9 --activate
+WORKDIR /app
+COPY . .
+RUN pnpm install --frozen-lockfile 2>&1
+RUN pnpm --filter @crmai/web run build 2>&1
+EXPOSE 3000
+ENV PORT=3000
+CMD ["pnpm", "--filter", "@crmai/web", "run", "start"]
