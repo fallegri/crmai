@@ -16,4 +16,4 @@ RUN test -d /app/apps/web/.next && echo ".next EXISTS" || echo ".next MISSING"
 EXPOSE 3000
 ENV PORT=3000
 
-CMD ["pnpm", "--filter", "@crmai/web", "run", "start"]
+CMD sh -c 'pnpm --filter @crmai/web run start 2>&1; echo "EXIT_CODE: $?"'
