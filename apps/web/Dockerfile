@@ -13,4 +13,5 @@ RUN pnpm --filter @crmai/web run build
 
 EXPOSE 3000
 
+ENV PORT=3000
 CMD ["pnpm", "--filter", "@crmai/web", "run", "start"]

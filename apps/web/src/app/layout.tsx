@@ -1,13 +1,14 @@
 import type { Metadata } from 'next';
+import './globals.css';
 
 export const metadata: Metadata = {
   title: 'crmAI',
-  description: 'CRM System',
+  description: 'Sistema CRM',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="es">
+    <html lang="es" suppressHydrationWarning>
       <body>{children}</body>
     </html>
   );
