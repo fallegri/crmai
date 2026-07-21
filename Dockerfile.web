@@ -1,6 +1,4 @@
-ARG CACHEBUST=0
-FROM node:20-alpine AS base
-ARG CACHEBUST
+FROM node:20-slim AS base
 RUN corepack enable && corepack prepare pnpm@9 --activate
 WORKDIR /app
 COPY pnpm-lock.yaml pnpm-workspace.yaml package.json ./
