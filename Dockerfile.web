@@ -11,11 +11,8 @@ RUN pnpm install --frozen-lockfile
 COPY apps/web ./apps/web
 RUN pnpm --filter @crmai/web run build
 
-# Debug: check .next exists
 RUN test -d /app/apps/web/.next && echo ".next EXISTS" || echo ".next MISSING"
-RUN ls -la /app/apps/web/.next/standalone/ 2>/dev/null || echo "no standalone dir"
-RUN ls -la /app/apps/web/.next/ 2>/dev/null || echo "no .next"
 
 EXPOSE 3000
 
-CMD cd apps/web && node -e "const n=require('next');n({dev:false}).prepare().then(()=>{console.log('NEXT_READY');const h=require('http');h.createServer(n.getRequestHandler()).listen(process.env.PORT||3000,()=>console.log('LISTENING on '+PORT))}).catch(e=>{console.error('ERR',e);process.exit(1)})"
+CMD ["pnpm", "--filter", "@crmai/web", "run", "start"]
