@@ -11,7 +11,5 @@ RUN pnpm install --frozen-lockfile
 COPY apps/web ./apps/web
 RUN pnpm --filter @crmai/web run build
 
-EXPOSE 3000
-
 ENV HOSTNAME=0.0.0.0
 CMD ["pnpm", "--filter", "@crmai/web", "run", "start"]
