@@ -23,7 +23,7 @@ export class PipelineUseCase {
     if (PipelineStage.TERMINAL_STAGES.includes(stage.name) && data.isTerminal === false) {
       throw new Error('Cannot change terminal flag on fixed stages');
     }
-    return this.repo.updateStage(id, data);
+    return this.repo.updatePipelineStage(id, data);
   }
 
   async deleteStage(id: string): Promise<void> {

@@ -71,7 +71,7 @@ export class PrismaOpportunityRepositoryAdapter implements OpportunityRepository
     return new PipelineStage(s.id, s.name, s.position, s.isTerminal, s.color, s.createdAt, s.updatedAt);
   }
 
-  async updateStage(id: string, data: any): Promise<PipelineStage> {
+  async updatePipelineStage(id: string, data: any): Promise<PipelineStage> {
     const s = await this.prisma.pipelineStage.update({ where: { id }, data });
     return new PipelineStage(s.id, s.name, s.position, s.isTerminal, s.color, s.createdAt, s.updatedAt);
   }
