@@ -1,4 +1,4 @@
-import { Module } from '@nestjs/common';
+import { Module, Global } from '@nestjs/common';
 import { JwtModule } from '@nestjs/jwt';
 import { PassportModule } from '@nestjs/passport';
 import { AuthUseCase, SessionManagementUseCase, RoleManagementUseCase, PermissionCheckUseCase } from './application/use-cases';
@@ -28,6 +28,7 @@ const GUARD_PROVIDERS = [
   OwnershipScopeGuard,
 ];
 
+@Global()
 @Module({
   imports: [
     PassportModule.register({ defaultStrategy: 'jwt' }),
