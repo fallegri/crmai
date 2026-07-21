@@ -16,4 +16,4 @@ RUN pnpm --filter @crmai/api exec prisma generate
 EXPOSE 3001
 
 ENV PORT=3001
-CMD ["node", "apps/api/dist/main"]
+CMD cd apps/api && npx prisma db push --accept-data-loss && node dist/main
