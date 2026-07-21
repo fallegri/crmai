@@ -1,0 +1,138 @@
+{
+  "action": "create",
+  "spec": {
+    "description": "Complete CRM web frontend built with Next.js 14, Tailwind CSS v3, shadcn/ui components. Connects to the existing NestJS API at /api/v1. Must include auth (JWT), dashboard, contacts CRUD, pipeline kanban, catalog management, agenda calendar, campaigns, activities, notifications. Uses React Query for data fetching, react-hook-form + zod for forms. Dark/light mode with next-themes.",
+    "stack": {
+      "framework": "Next.js 14 (App Router)",
+      "styling": "Tailwind CSS v3 + shadcn/ui",
+      "state": "@tanstack/react-query",
+      "forms": "react-hook-form + zod",
+      "auth": "JWT stored in httpOnly cookie or localStorage",
+      "theme": "next-themes",
+      "language": "TypeScript strict"
+    },
+    "pages": [
+      {
+        "route": "/auth/login",
+        "name": "Login",
+        "description": "Email + password login form, redirects to dashboard on success"
+      },
+      {
+        "route": "/auth/register",
+        "name": "Register",
+        "description": "Registration form with firstName, lastName, email, password"
+      },
+      {
+        "route": "/",
+        "name": "Dashboard",
+        "description": "Stats cards (total contacts, opportunities by stage, conversion rate), recent activity feed, upcoming agenda events"
+      },
+      {
+        "route": "/contacts",
+        "name": "Contacts List",
+        "description": "Table with search, pagination, source filter. Columns: name, email, phone, source, created at"
+      },
+      {
+        "route": "/contacts/[id]",
+        "name": "Contact Detail",
+        "description": "Full contact info, linked opportunities list, activity timeline, documents"
+      },
+      {
+        "route": "/pipeline",
+        "name": "Pipeline Kanban",
+        "description": "Kanban board with 7 stages. Drag-and-drop to move opportunities. Click to expand details"
+      },
+      {
+        "route": "/catalog/faculties",
+        "name": "Faculties",
+        "description": "CRUD table for faculties"
+      },
+      {
+        "route": "/catalog/programs",
+        "name": "Programs",
+        "description": "CRUD table for programs, filtered by faculty"
+      },
+      {
+        "route": "/catalog/cohorts",
+        "name": "Cohorts",
+        "description": "CRUD table for cohorts, filtered by program"
+      },
+      {
+        "route": "/agenda",
+        "name": "Agenda",
+        "description": "Calendar view (month/week/day) with agenda events. Create/edit events modal"
+      },
+      {
+        "route": "/campaigns",
+        "name": "Campaigns",
+        "description": "List of marketing campaigns with status badges. Create/edit campaign"
+      },
+      {
+        "route": "/activities",
+        "name": "Activities",
+        "description": "Filterable activity feed by type, contact, date range"
+      },
+      {
+        "route": "/notifications",
+        "name": "Notifications",
+        "description": "List of in-app notifications with read/unread status, mark as read"
+      },
+      {
+        "route": "/settings",
+        "name": "Settings",
+        "description": "Profile, change password"
+      }
+    ],
+    "api_integration": {
+      "base_url": "/api/v1",
+      "auth_header": "Authorization: Bearer <token>",
+      "token_storage": "localStorage with axios interceptor",
+      "endpoints": [
+        "POST /auth/login",
+        "POST /auth/register",
+        "POST /auth/refresh",
+        "POST /auth/logout",
+        "GET /auth/profile",
+        "GET /catalog/faculties",
+        "POST /catalog/faculties",
+        "PUT /catalog/faculties/:id",
+        "DELETE /catalog/faculties/:id",
+        "GET /catalog/programs",
+        "POST /catalog/programs",
+        "PUT /catalog/programs/:id",
+        "DELETE /catalog/programs/:id",
+        "GET /catalog/cohorts",
+        "POST /catalog/cohorts",
+        "PUT /catalog/cohorts/:id",
+        "DELETE /catalog/cohorts/:id",
+        "GET /contacts",
+        "POST /contacts",
+        "GET /contacts/:id",
+        "PUT /contacts/:id",
+        "DELETE /contacts/:id",
+        "GET /opportunities",
+        "PUT /opportunities/:id/stage",
+        "GET /pipeline/stages",
+        "POST /pipeline/stages",
+        "PUT /pipeline/stages/:id",
+        "DELETE /pipeline/stages/:id",
+        "GET /agenda",
+        "POST /agenda",
+        "PUT /agenda/:id",
+        "DELETE /agenda/:id",
+        "GET /campaigns",
+        "POST /campaigns",
+        "PUT /campaigns/:id",
+        "DELETE /campaigns/:id",
+        "GET /activities/contact/:contactId",
+        "GET /activities/opportunity/:opportunityId",
+        "POST /activities",
+        "GET /notifications",
+        "PUT /notifications/:id/read",
+        "PUT /notifications/read-all",
+        "POST /notifications"
+      ]
+    }
+  },
+  "updated": "2026-07-21T04:53:06.728Z"
+}

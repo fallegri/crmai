@@ -1,0 +1,76 @@
+{
+  "phases": [
+    {
+      "name": "Setup & Foundation",
+      "description": "Initialize shadcn/ui, install deps, create layout, auth context, API client, theme provider, sidebar shell",
+      "estimated_hours": 4,
+      "dependencies": []
+    },
+    {
+      "name": "Auth Pages",
+      "description": "Login and register pages with form validation, JWT storage, protected route logic",
+      "estimated_hours": 3,
+      "dependencies": [
+        "Setup & Foundation"
+      ]
+    },
+    {
+      "name": "Dashboard",
+      "description": "Stats cards, recent activity feed, upcoming agenda, conversion summary",
+      "estimated_hours": 3,
+      "dependencies": [
+        "Auth Pages"
+      ]
+    },
+    {
+      "name": "Contacts Module",
+      "description": "Table with search/pagination, create/edit/delete dialogs, detail view with opportunities & activity timeline",
+      "estimated_hours": 5,
+      "dependencies": [
+        "Dashboard"
+      ]
+    },
+    {
+      "name": "Pipeline Kanban",
+      "description": "Kanban board with drag-and-drop, opportunity detail modal, stage management",
+      "estimated_hours": 4,
+      "dependencies": [
+        "Contacts Module"
+      ]
+    },
+    {
+      "name": "Catalog Module",
+      "description": "CRUD tables for faculties, programs, cohorts with hierarchical filtering",
+      "estimated_hours": 3,
+      "dependencies": [
+        "Dashboard"
+      ]
+    },
+    {
+      "name": "Agenda Calendar",
+      "description": "Monthly calendar view, create/edit event dialog, event list",
+      "estimated_hours": 3,
+      "dependencies": [
+        "Dashboard"
+      ]
+    },
+    {
+      "name": "Campaigns, Activities, Notifications",
+      "description": "List pages with filters, read/unread for notifications, campaign create/edit",
+      "estimated_hours": 3,
+      "dependencies": [
+        "Dashboard"
+      ]
+    },
+    {
+      "name": "Settings & Polish",
+      "description": "Profile page, change password, dark/light toggle, error boundaries, loading states",
+      "estimated_hours": 2,
+      "dependencies": [
+        "Auth Pages"
+      ]
+    }
+  ],
+  "architecture": "Next.js 14 App Router with (dashboard) route group for authenticated pages. Auth context provider wraps the app. Each module is a folder under src/components/ with its own page files in src/app/. API calls via fetch wrappers organized by domain in src/lib/api/. Shared components in src/components/ui/ (shadcn) and src/components/shared/.",
+  "updated": "2026-07-21T04:53:37.466Z"
+}

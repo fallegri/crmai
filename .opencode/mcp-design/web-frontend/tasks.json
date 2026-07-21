@@ -1,0 +1,75 @@
+{
+  "tasks": [
+    {
+      "id": "T1",
+      "title": "Initialize shadcn/ui and install dependencies",
+      "description": "Run shadcn init, install @tanstack/react-query, react-hook-form, zod, @hookform/resolvers, next-themes, lucide-react, date-fns"
+    },
+    {
+      "id": "T2",
+      "title": "Create API client layer",
+      "description": "Create src/lib/api/client.ts with fetch wrapper, auth interceptor, token management. Create domain-specific API modules for auth, contacts, catalog, pipeline, agenda, campaigns, notifications, activities"
+    },
+    {
+      "id": "T3",
+      "title": "Create auth context and protected route layout",
+      "description": "Create src/contexts/auth-context.tsx with login/register/logout/refresh logic. Create (dashboard) layout with sidebar navigation and header"
+    },
+    {
+      "id": "T4",
+      "title": "Build sidebar and header components",
+      "description": "Responsive sidebar with nav links, user menu, dark mode toggle. Header with breadcrumb and notification bell"
+    },
+    {
+      "id": "T5",
+      "title": "Build login and register pages",
+      "description": "Auth pages under /auth/login and /auth/register with zod validation, error display, redirect on success"
+    },
+    {
+      "id": "T6",
+      "title": "Build dashboard page",
+      "description": "Stats cards (total contacts, active opps, conversion rate, won this month), recent activity list, upcoming agenda events"
+    },
+    {
+      "id": "T7",
+      "title": "Build contacts list page",
+      "description": "Table with search input, pagination, source filter dropdown. Create/edit contact dialog with form validation"
+    },
+    {
+      "id": "T8",
+      "title": "Build contact detail page",
+      "description": "Contact info card, linked opportunities list, activity timeline, document list sections"
+    },
+    {
+      "id": "T9",
+      "title": "Build pipeline kanban board",
+      "description": "Drag-and-drop kanban with 7 columns (stages). Opportunity cards show name, program, advisor. Detail modal on click. Stage change on drop"
+    },
+    {
+      "id": "T10",
+      "title": "Build catalog pages",
+      "description": "Three pages: faculties, programs (filtered by faculty), cohorts (filtered by program). All with CRUD dialogs"
+    },
+    {
+      "id": "T11",
+      "title": "Build agenda page",
+      "description": "Calendar view with month/week/day toggle. Event creation dialog. Events displayed on calendar with type colors"
+    },
+    {
+      "id": "T12",
+      "title": "Build campaigns, activities, notifications pages",
+      "description": "Campaigns list with status badges, activities feed with filters, notifications with read/unread toggle"
+    },
+    {
+      "id": "T13",
+      "title": "Build settings page",
+      "description": "Profile display, change password form"
+    },
+    {
+      "id": "T14",
+      "title": "Deploy and verify frontend",
+      "description": "Push changes, redeploy web service on Railway, verify all pages work with real API data"
+    }
+  ],
+  "updated": "2026-07-21T04:53:48.012Z"
+}

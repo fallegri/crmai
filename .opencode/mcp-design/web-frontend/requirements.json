@@ -1,0 +1,89 @@
+{
+  "requirements": [
+    {
+      "id": "FR-1",
+      "description": "Auth: login, register, JWT token management, protected routes, auto-refresh",
+      "type": "functional",
+      "priority": "critical"
+    },
+    {
+      "id": "FR-2",
+      "description": "Dashboard: stats cards, recent activity, upcoming agenda events, conversion charts",
+      "type": "functional",
+      "priority": "high"
+    },
+    {
+      "id": "FR-3",
+      "description": "Contacts: paginated table with search/filter, create/edit/delete, detail view with opportunities and activity timeline",
+      "type": "functional",
+      "priority": "high"
+    },
+    {
+      "id": "FR-4",
+      "description": "Pipeline: kanban board with drag-and-drop, 7 stages, expand opportunity details",
+      "type": "functional",
+      "priority": "high"
+    },
+    {
+      "id": "FR-5",
+      "description": "Catalog: CRUD for faculties, programs, cohorts with hierarchical filtering",
+      "type": "functional",
+      "priority": "high"
+    },
+    {
+      "id": "FR-6",
+      "description": "Agenda: calendar view (month/week/day), CRUD events, filter by type",
+      "type": "functional",
+      "priority": "medium"
+    },
+    {
+      "id": "FR-7",
+      "description": "Campaigns: list with status badges, create/edit campaign form",
+      "type": "functional",
+      "priority": "medium"
+    },
+    {
+      "id": "FR-8",
+      "description": "Activities: filterable feed by type, contact, date range",
+      "type": "functional",
+      "priority": "medium"
+    },
+    {
+      "id": "FR-9",
+      "description": "Notifications: list with read/unread, mark as read, mark all read",
+      "type": "functional",
+      "priority": "medium"
+    },
+    {
+      "id": "FR-10",
+      "description": "Settings: profile info, change password form",
+      "type": "functional",
+      "priority": "low"
+    },
+    {
+      "id": "NFR-1",
+      "description": "Dark/light mode with next-themes, persisted preference",
+      "type": "non-functional",
+      "priority": "medium"
+    },
+    {
+      "id": "NFR-2",
+      "description": "Responsive design: mobile-first, works on tablet and desktop",
+      "type": "non-functional",
+      "priority": "high"
+    },
+    {
+      "id": "NFR-3",
+      "description": "Loading skeletons and error states on all pages",
+      "type": "non-functional",
+      "priority": "high"
+    },
+    {
+      "id": "NFR-4",
+      "description": "Form validation with zod schemas",
+      "type": "non-functional",
+      "priority": "high"
+    }
+  ],
+  "updated": "2026-07-21T04:53:15.551Z"
+}
