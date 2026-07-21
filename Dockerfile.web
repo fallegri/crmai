@@ -11,5 +11,4 @@ RUN pnpm install --frozen-lockfile
 COPY apps/web ./apps/web
 RUN pnpm --filter @crmai/web run build
 
-ENV HOSTNAME=0.0.0.0
-CMD ["pnpm", "--filter", "@crmai/web", "run", "start"]
+CMD cd apps/web && node node_modules/.bin/next start -H 0.0.0.0
