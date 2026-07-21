@@ -2,15 +2,19 @@
   "name": "@crmai/api",
   "version": "0.0.0",
   "private": true,
+  "prisma": {
+    "seed": "ts-node prisma/seed.ts"
+  },
   "scripts": {
     "dev": "nest start --watch",
     "build": "nest build",
     "start": "node dist/main",
-"start:production": "npx prisma migrate deploy && node dist/main",
-"db:generate": "prisma generate",
-"db:push": "prisma db push",
-"db:migrate": "prisma migrate deploy",
-"db:migrate:dev": "prisma migrate dev",
+    "start:production": "npx prisma migrate deploy && node dist/main",
+    "db:generate": "prisma generate",
+    "db:push": "prisma db push",
+    "db:seed": "prisma db seed",
+    "db:migrate": "prisma migrate deploy",
+    "db:migrate:dev": "prisma migrate dev",
     "test": "jest",
     "test:e2e": "jest --config ./test/jest-e2e.json",
     "lint": "eslint \"src/**/*.ts\" --fix"
