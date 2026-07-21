@@ -11,4 +11,6 @@ RUN pnpm install --frozen-lockfile
 COPY apps/web ./apps/web
 RUN pnpm --filter @crmai/web run build
 
-CMD cd apps/web && node node_modules/.bin/next start -H 0.0.0.0
+EXPOSE 3000
+
+CMD ["pnpm", "--filter", "@crmai/web", "run", "start"]
