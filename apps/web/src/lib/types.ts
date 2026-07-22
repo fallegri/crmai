@@ -8,10 +8,14 @@ export interface User {
   updatedAt: string;
 }
 
-export interface AuthResponse {
-  user: User;
+export interface AuthTokens {
   accessToken: string;
   refreshToken: string;
+}
+
+export interface AuthResponse {
+  user: User;
+  tokens: AuthTokens;
 }
 
 export interface LoginDto {

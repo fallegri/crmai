@@ -47,15 +47,15 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   const login = useCallback(async (dto: LoginDto) => {
     const res = await apiClient.post<AuthResponse>('/auth/login', dto);
-    setToken(res.accessToken);
-    setRefreshToken(res.refreshToken);
+    setToken(res.tokens.accessToken);
+    setRefreshToken(res.tokens.refreshToken);
     setState({ user: res.user, isLoading: false, isAuthenticated: true });
   }, []);
 
   const register = useCallback(async (dto: RegisterDto) => {
     const res = await apiClient.post<AuthResponse>('/auth/register', dto);
-    setToken(res.accessToken);
-    setRefreshToken(res.refreshToken);
+    setToken(res.tokens.accessToken);
+    setRefreshToken(res.tokens.refreshToken);
     setState({ user: res.user, isLoading: false, isAuthenticated: true });
   }, []);
 
@@ -78,8 +78,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     }
     try {
       const res = await apiClient.post<AuthResponse>('/auth/refresh', { refreshToken });
-      setToken(res.accessToken);
-      if (res.refreshToken) setRefreshToken(res.refreshToken);
+      setToken(res.tokens.accessToken);
+      if (res.tokens.refreshToken) setRefreshToken(res.tokens.refreshToken);
       setState({ user: res.user, isLoading: false, isAuthenticated: true });
     } catch {
       clearToken();
