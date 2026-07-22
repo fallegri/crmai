@@ -53,7 +53,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const register = useCallback(async (dto: RegisterDto) => {
-    const res = await apiClient.post<AuthResponse>('/auth/register', dto);
+    await apiClient.post<User>('/auth/register', dto);
+    const res = await apiClient.post<AuthResponse>('/auth/login', { email: dto.email, password: dto.password });
     setToken(res.tokens.accessToken);
     setRefreshToken(res.tokens.refreshToken);
     setState({ user: res.user, isLoading: false, isAuthenticated: true });
