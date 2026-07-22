@@ -24,12 +24,14 @@ export class AuthUseCase {
       throw new ConflictException('Email already registered');
     }
     const passwordHash = await this.passwordHasher.hash(dto.password);
-    return this.userRepo.create({
+    const user = await this.userRepo.create({
       email: dto.email,
       passwordHash,
       firstName: dto.firstName,
       lastName: dto.lastName,
     });
+    await this.userRepo.update(user.id, { status: 'INACTIVE' });
+    return user;
   }
 
   async login(email: string, password: string, ipAddress?: string, userAgent?: string): Promise<{ user: User; tokens: TokenPair }> {
@@ -38,7 +40,10 @@ export class AuthUseCase {
       throw new UnauthorizedException('Invalid credentials');
     }
     if (!user.isActive()) {
-      throw new UnauthorizedException('Account is inactive or blocked');
+      if (user.status === UserStatus.INACTIVE) {
+        throw new UnauthorizedException('Tu cuenta está pendiente de aprobación por un administrador');
+      }
+      throw new UnauthorizedException('Cuenta bloqueada');
     }
     const isValid = await this.passwordHasher.compare(password, user.passwordHash);
     if (!isValid) {

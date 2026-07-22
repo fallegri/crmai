@@ -13,6 +13,7 @@ import {
   Activity,
   Bell,
   Settings,
+  Shield,
   X,
 } from 'lucide-react';
 
@@ -25,6 +26,7 @@ const navItems = [
   { href: '/campaigns', label: 'Campaigns', icon: Megaphone },
   { href: '/activities', label: 'Activities', icon: Activity },
   { href: '/notifications', label: 'Notifications', icon: Bell },
+  { href: '/admin', label: 'Admin', icon: Shield },
   { href: '/settings', label: 'Settings', icon: Settings },
 ];
 

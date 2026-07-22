@@ -125,6 +125,9 @@ export const apiClient = {
   put<T>(url: string, data?: unknown): Promise<T> {
     return request<T>('PUT', url, data);
   },
+  patch<T>(url: string, data?: unknown): Promise<T> {
+    return request<T>('PATCH', url, data);
+  },
   delete<T>(url: string): Promise<T> {
     return request<T>('DELETE', url);
   },

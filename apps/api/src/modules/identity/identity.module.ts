@@ -4,7 +4,7 @@ import { PassportModule } from '@nestjs/passport';
 import { AuthUseCase, SessionManagementUseCase, RoleManagementUseCase, PermissionCheckUseCase } from './application/use-cases';
 import { USER_REPOSITORY_PORT, SESSION_PORT, TOKEN_SERVICE_PORT, PASSWORD_HASHER_PORT } from './application/ports';
 import { PrismaUserRepositoryAdapter, RedisSessionAdapter, JwtTokenServiceAdapter, BcryptPasswordHasherAdapter } from './infrastructure/adapters';
-import { AuthController, SessionsController, RolesController } from './interface/controllers';
+import { AuthController, SessionsController, RolesController, AdminController } from './interface/controllers';
 import { JwtAuthGuard, PermissionsGuard, OwnershipScopeGuard } from './interface/guards';
 import { JwtStrategy } from './interface/strategies/jwt.strategy';
 
@@ -34,7 +34,7 @@ const GUARD_PROVIDERS = [
     PassportModule.register({ defaultStrategy: 'jwt' }),
     JwtModule.register({}),
   ],
-  controllers: [AuthController, SessionsController, RolesController],
+  controllers: [AuthController, SessionsController, RolesController, AdminController],
   providers: [
     ...REPOSITORY_PROVIDERS,
     ...USE_CASE_PROVIDERS,
